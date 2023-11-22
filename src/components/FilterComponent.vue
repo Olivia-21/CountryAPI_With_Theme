@@ -7,7 +7,7 @@
       :value="modelValue"
       @change="$emit('update:modelValue', $event.target.value)"
     >
-      <option value="">Filter by Region</option>
+      <option value="">Filter by Regions</option>
       <option
         :value="region"
         v-for="(region, index) in countryRegion"
