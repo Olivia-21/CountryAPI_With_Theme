@@ -126,4 +126,12 @@ watch(search, (newVal) => {
 .layout {
   background-color: hsl(209, 23%, 22%);
 }
+
+@media screen and (max-width: 375px) {
+  .searchCountries {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
 </style>

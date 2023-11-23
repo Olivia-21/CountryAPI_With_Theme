@@ -35,7 +35,6 @@ div input {
   padding: 5px;
   height: 40px;
   border: none;
-  position: relative;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   padding-left: 35px;
@@ -56,5 +55,12 @@ div span {
 .darkBlue {
   color: black;
   background-color: white;
+}
+
+@media screen and (max-width: 375px) {
+  .search input {
+    width: 100%;
+    margin: 10px;
+  }
 }
 </style>

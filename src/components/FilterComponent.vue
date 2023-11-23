@@ -56,4 +56,10 @@ div select {
   background-color: white;
   color: black;
 }
+
+@media screen and (max-width: 375px) {
+  div {
+    margin-left: 10px;
+  }
+}
 </style>
