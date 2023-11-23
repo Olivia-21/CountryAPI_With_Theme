@@ -1,5 +1,5 @@
 <template>
-  <div :class="bgColor ? 'layout' : 'white'">
+  <div>
     <LayOut :colorAlter="bgColor" @click="toggleButtonFromParent">
       <div class="country">
         <div class="searchCountries">

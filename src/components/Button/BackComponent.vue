@@ -1,10 +1,16 @@
 <template>
-  <button>
+  <button @click="backFunction">
     <span class="material-icons"> arrow_back </span> <span>Back</span>
   </button>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRouter } from "vue-router";
+const navback = useRouter();
+const backFunction = () => {
+  navback.back();
+};
+</script>
 
 <style scoped>
 button {
