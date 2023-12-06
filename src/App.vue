@@ -1,11 +1,14 @@
 <template>
-  <!-- <CountryView /> -->
-  <!-- <router-link to="/details"></router-link> -->
   <router-view />
 </template>
 
 <script setup>
-// import CountryView from "./views/CountriesView.vue";
+window.onstorage = function (e) {
+  console.log(e);
+  if (e.key === "backgroundColor") {
+    console.log("New value for colorChange:", e.newValue);
+  }
+};
 </script>
 
 <style></style>

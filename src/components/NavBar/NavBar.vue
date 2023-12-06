@@ -3,7 +3,7 @@
     <span>Where in the world?</span>
     <button
       :class="backgroundColor ? 'white' : 'darkBlue'"
-      @click="$emit('toggle')"
+      @click="emitFunction"
     >
       <span class="material-icons"> dark_mode </span>
     </button>
@@ -11,13 +11,24 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, defineEmits, ref } from "vue";
 
 defineProps({
   backgroundColor: {
     type: Boolean,
   },
 });
+
+const colorChange = ref(true);
+
+const emit = defineEmits(["toggle"]);
+const emitFunction = () => {
+  emit("toggle");
+  localStorage.setItem(
+    "backgroundColor",
+    (colorChange.value = !colorChange.value)
+  );
+};
 </script>
 
 <style scoped>

@@ -1,10 +1,10 @@
 <template>
-  <router-link :to="`/details/${Country.name.common}`">
+  <router-link :to="`/details/${Country.name}`">
     <div>
-      <img :src="Country.flags.png" alt="" />
+      <img :src="Country.flag" alt="" />
 
       <div class="content">
-        <h3>{{ Country.name.common }}</h3>
+        <h3>{{ Country.name }}</h3>
         <br />
         <p>
           Population: <span>{{ Country.population }}</span>

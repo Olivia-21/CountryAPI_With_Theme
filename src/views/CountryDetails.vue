@@ -107,11 +107,10 @@ img {
 
 .content {
   margin-top: 50px;
-  text-wrap: nowrap;
 }
 
 .currency {
-  margin-top: 80px;
+  margin-top: 100px;
 }
 
 .currency p {
@@ -119,10 +118,6 @@ img {
 }
 .content p {
   margin-bottom: 20px;
-}
-
-.language {
-  text-wrap: nowrap;
 }
 
 .language span::after {
@@ -133,7 +128,7 @@ img {
 .conty {
   display: flex;
   margin-bottom: 20px;
-  gap: 60px;
+  gap: 70px;
 }
 
 .borderCountries button {

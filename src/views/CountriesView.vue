@@ -15,7 +15,7 @@
         <div class="countries">
           <div
             class="countryList"
-            v-for="country in countriesReg"
+            v-for="country in countryInfo"
             :key="country"
           >
             <CountryList :Country="country" />
@@ -30,13 +30,15 @@
 import LayOut from "@/Layout/LayOut.vue";
 import SearchButton from "../components/SearchComponent.vue";
 import FilterComponent from "../components/FilterComponent.vue";
-import axios from "axios";
+// import axios from "axios";
 import CountryList from "../components/CountryList.vue";
-import { onMounted, ref, watch } from "vue";
+import { onMounted, ref, watch, computed } from "vue";
+import {
+  getCountry,
+  countriesReg,
+  countrySearch,
+} from "../components/Composable/api";
 
-//declaring a variable to hold the api
-const countriesReg = ref([]);
-const countrySearch = ref([]);
 const search = ref("");
 const filterContinent = ref("");
 const bgColor = ref(true);
@@ -55,17 +57,17 @@ const toggleButtonFromParent = () => {
 };
 
 // A function to contain the api fetched
-const getCountry = async (endpoint) => {
-  try {
-    const countries = await axios.get(
-      "https://restcountries.com/v3.1/" + endpoint
-    );
-    countrySearch.value = countries?.data;
-    countriesReg.value = countries?.data;
-  } catch (error) {
-    console.log(error);
-  }
-};
+// const getCountry = async (endpoint) => {
+//   try {
+//     const countries = await axios.get(
+//       "https://restcountries.com/v3.1/" + endpoint
+//     );
+//     countrySearch.value = countries?.data;
+//     countriesReg.value = countries?.data;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 // Mounting the api using the onMounted(accepts a callback function) function
 onMounted(() => {
@@ -86,6 +88,18 @@ watch(search, (newVal) => {
 
   // Update countriesReg.value with the filtered or original list
   countriesReg.value = filtered;
+});
+
+const countryInfo = computed(() => {
+  return countriesReg.value.map((item) => {
+    return {
+      name: item.name.common,
+      flag: item.flags.png,
+      population: item.population,
+      capital: item.capital,
+      region: item.region,
+    };
+  });
 });
 </script>
 
